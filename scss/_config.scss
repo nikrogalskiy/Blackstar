@@ -1,0 +1,115 @@
+// IMPORT SECTION
+
+@import "node_modules/bootstrap/scss/bootstrap-reboot.scss"; // Bootstrap Reboot collection
+@import "node_modules/bootstrap/scss/mixins/_breakpoints.scss"; // Bootstrap Breakpoints mixin
+@import "node_modules/slick-carousel/slick/slick.scss";
+
+// USER VARIABLES SECTION
+
+$accent: #eddb10; // Accent Color
+$fontsize: 20px; // Body Font Size
+$textcolor: #fff; // Text Color
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+$roboto: Pobeda, sans-serif; // Roboto Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+
+$grid-gutter-width: 20px;
+$gutter: $grid-gutter-width;
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		font-display: swap;
+		src: local($fname), url($furl) format("woff2");
+	}
+}
+
+@include font("Pobeda", normal, 400, "../fonts/Pobeda-Regular.woff");
+@include font("Pobeda", normal, 700, "../fonts/Pobeda-Bold.woff");
+@include font("NotoSans", normal, 400, "../fonts/NotoSans.woff");
+@include font("NotoSans", normal, 700, "../fonts/NotoSans-Bold.woff");
+@include font("NotoSans", italic, 700, "../fonts/NotoSans-BoldItalic.woff");
+@include font("NotoSans", italic, 400, "../fonts/NotoSans-Italic.woff");
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: $accent;
+	color: #fff;
+}
+
+input,
+textarea {
+	outline: none;
+	&:focus:required:invalid {
+		border-color: red;
+	}
+	&:required:valid {
+		border-color: green;
+	}
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	font-family: $roboto;
+	font-size: $fontsize;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	overflow-x: hidden;
+	color: $textcolor;
+}
+.ibg {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.ibg img {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.fullscreen {
+	min-height: 100vh;
+}
+ul,
+li,
+a {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+a {
+	color: #fff;
+	&:hover {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+.container {
+	max-width: 1230px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
